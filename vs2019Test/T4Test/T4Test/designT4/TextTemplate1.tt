@@ -1,0 +1,23 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".txt" #>
+
+///
+//这个文件保存时会自动运行并生成响应文件
+//VS2019 中文件会显示在模板的子文件夹中
+//https://docs.microsoft.com/ja-jp/visualstudio/modeling/design-time-code-generation-by-using-t4-text-templates?view=vs-2019&redirectedfrom=MSDN&viewFallbackFrom=vs-2015
+///
+
+
+这个文件保存时会自动运行并生成响应文件！！！！
+
+
+<#int top = 10;
+
+for (int i = 0; i<=top; i++)
+{ #>
+   The square of <#= i #> is <#= i*i #>
+<# } #>

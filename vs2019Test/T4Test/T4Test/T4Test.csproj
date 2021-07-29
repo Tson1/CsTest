@@ -1,0 +1,53 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NUnit" Version="3.12.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.16.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+    <PackageReference Include="System.CodeDom" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="designT4\TextTemplate1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TextTemplate1.txt</LastGenOutput>
+    </None>
+    <None Update="designT4\TextTemplate1.txt">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TextTemplate1.tt</DependentUpon>
+    </None>
+    <None Update="runTimeT4\RuntimeTextTemplate1.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>RuntimeTextTemplate1.cs</LastGenOutput>
+    </None>
+    <None Update="runTimeT4\T4HasParam.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>T4HasParam.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="runTimeT4\RuntimeTextTemplate1.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>RuntimeTextTemplate1.tt</DependentUpon>
+    </Compile>
+    <Compile Update="runTimeT4\T4HasParam.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>T4HasParam.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>
